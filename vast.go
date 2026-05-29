@@ -424,7 +424,7 @@ type Icon struct {
 	// Must match ([0-9]*|top|bottom)
 	YPosition string `xml:"yPosition,attr,omitempty"`
 	// Start time at which the player should display the icon. Expressed in standard time format hh:mm:ss.
-	Offset Offset `xml:"offset,attr,omitempty"`
+	Offset *Offset `xml:"offset,attr,omitempty"`
 	// duration for which the player must display the icon. Expressed in standard time format hh:mm:ss.
 	Duration Duration `xml:"duration,attr,omitempty"`
 	// The apiFramework defines the method to use for communication with the icon element
