@@ -539,7 +539,7 @@ type MediaFile struct {
 	// MinBitrate must be supplied and Bitrate should not be supplied.
 	MaxBitrate int `xml:"maxBitrate,attr,omitempty" json:",omitempty"`
 	// Whether it is acceptable to scale the image.
-	Scalable bool `xml:"scalable,attr,omitempty" json:",omitempty"`
+	Scalable *BoolInt `xml:"scalable,attr,omitempty" json:",omitempty"`
 	// Whether the ad must have its aspect ratio maintained when scales.
 	MaintainAspectRatio bool `xml:"maintainAspectRatio,attr,omitempty" json:",omitempty"`
 	// The codec used to produce the media file.

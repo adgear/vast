@@ -538,7 +538,8 @@ func TestInlineLinear(t *testing.T) {
 						assert.Equal(t, 500, mf[0].Bitrate)
 						assert.Equal(t, 400, mf[0].Width)
 						assert.Equal(t, 300, mf[0].Height)
-						assert.Equal(t, true, mf[0].Scalable)
+						assert.NotNil(t, mf[0].Scalable)
+						assert.Equal(t, true, mf[0].Scalable.Bool())
 						assert.Equal(t, true, mf[0].MaintainAspectRatio)
 						assert.Equal(t, "http://cdnp.tremormedia.com/video/acudeo/Carrot_400x300_500kb.flv", mf[0].URI)
 					}
