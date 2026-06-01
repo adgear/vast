@@ -424,7 +424,7 @@ type Icon struct {
 	// Must match ([0-9]*|top|bottom)
 	YPosition string `xml:"yPosition,attr,omitempty"`
 	// Start time at which the player should display the icon. Expressed in standard time format hh:mm:ss.
-	Offset Offset `xml:"offset,attr,omitempty"`
+	Offset *Offset `xml:"offset,attr,omitempty"`
 	// duration for which the player must display the icon. Expressed in standard time format hh:mm:ss.
 	Duration Duration `xml:"duration,attr,omitempty"`
 	// The apiFramework defines the method to use for communication with the icon element
@@ -539,7 +539,7 @@ type MediaFile struct {
 	// MinBitrate must be supplied and Bitrate should not be supplied.
 	MaxBitrate int `xml:"maxBitrate,attr,omitempty" json:",omitempty"`
 	// Whether it is acceptable to scale the image.
-	Scalable bool `xml:"scalable,attr,omitempty" json:",omitempty"`
+	Scalable *BoolInt `xml:"scalable,attr,omitempty" json:",omitempty"`
 	// Whether the ad must have its aspect ratio maintained when scales.
 	MaintainAspectRatio bool `xml:"maintainAspectRatio,attr,omitempty" json:",omitempty"`
 	// The codec used to produce the media file.

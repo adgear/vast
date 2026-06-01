@@ -43,3 +43,27 @@ func TestOffsetUnmarshaler(t *testing.T) {
 	o = Offset{}
 	assert.EqualError(t, o.UnmarshalText([]byte("abc%")), "invalid offset: abc%")
 }
+
+func TestOffsetPointerMarshaler(t *testing.T) {
+	// Test pointer to zero value
+	o := &Offset{}
+	b, err := o.MarshalText()
+	if assert.NoError(t, err) {
+		assert.Equal(t, "0%", string(b))
+	}
+
+	// Test pointer to percent value
+	o = &Offset{Percent: .1}
+	b, err = o.MarshalText()
+	if assert.NoError(t, err) {
+		assert.Equal(t, "10%", string(b))
+	}
+
+	// Test pointer to duration value
+	d := Duration(0)
+	o = &Offset{Duration: &d}
+	b, err = o.MarshalText()
+	if assert.NoError(t, err) {
+		assert.Equal(t, "00:00:00", string(b))
+	}
+}
